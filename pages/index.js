@@ -9,14 +9,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main className={main}>
+        <h1 className={title}>
           Welcome to ED!
         </h1>
 
-        <button onClick={() => systems("Luan Yun Di")}>
-          Click the thing
-        </button>
 
       </main>
     </div>
