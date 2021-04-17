@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import styles from '../styles/Systems.module.css'
 import { systems } from './api/eddb'
 import Badge from '../components/AllegianceBadge'
+import Loading from '../components/Loading'
 
 const DataRow = ({label, value}) => (
   <div className={styles.dataRow}>
@@ -13,15 +14,18 @@ const DataRow = ({label, value}) => (
 export default function Systems() {
   const [ system, setSystem ] = useState(null);
   const [ systemData, setSystemData ] = useState(null);
+  const [ loading, setLoading ] = useState(false);
 
   const handleFetch = () => {
+    setLoading(true);
+
     const fetchData = async () => {
       const data = await systems(system);
-      console.log(data)
       setSystemData(data.docs[0]);
+      setLoading(false);
     }
 
-    fetchData()
+    fetchData();
   }
 
   useEffect(() => {
@@ -43,6 +47,8 @@ export default function Systems() {
 
         <input type="text" id="system" name="system" onChange={(e) => setSystem(e.currentTarget.value)}/>
         <button type="submit" onClick={() => handleFetch()}>Fetch</button>
+
+        <Loading loading={loading}/>
 
         {systemData &&
           <div className="grid">

@@ -1,0 +1,28 @@
+.loading {
+  position: fixed;
+  display: flex;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  align-content: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.loading[data-loading=false] {
+  opacity: 0;
+  transition: opacity 1s;
+  pointer-events: none;
+}
+
+.loading[data-loading=true] {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.loading img {
+  width: 40%;
+  max-width:
+}
