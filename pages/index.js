@@ -9,8 +9,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={main}>
-        <h1 className={title}>
+      <main>
+        <h1>
           Welcome to ED!
         </h1>
 
