@@ -1,0 +1,36 @@
+.missions {
+  border-collapse: separate;
+  border-spacing: 0 .25rem;
+  color: var(--orange);
+}
+
+.missions thead tr {
+  font-size: 1.25rem;
+  background: none;
+}
+
+.missions tr {
+  background: var(--orangeRow);
+}
+
+.missions td {
+  padding: .75rem 1rem;
+  line-height: 1.6;
+}
+
+.missions td p {
+  margin: 0;
+  padding: 0;
+  opacity: 0.65;
+  font-size: 0.75rem;
+  font-family: "Sintony";
+}
+
+.right {
+  text-align: right;
+}
+
+.em {
+  text-align: center;
+  font-size: 1.25rem;
+}
