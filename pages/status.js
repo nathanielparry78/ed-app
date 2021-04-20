@@ -32,7 +32,7 @@ const HealthBar = styled.span`
     height: 100%;
     background: var(--orange);
 
-    /* ${({value}) => value && `width: ${value}%`} */
+    ${({value}) => value && `width: ${value}%`}
   }
 `
 
