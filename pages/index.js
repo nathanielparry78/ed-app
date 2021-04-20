@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { commodities, systems } from './api/eddb'
+import ToggleButton from '../components/ToggleButton'
 
 export default function Home() {
   return (
@@ -11,8 +11,14 @@ export default function Home() {
 
       <main>
         <h1>
-          Welcome to ED!
+          Welcome CMDR!
         </h1>
+
+        <ToggleButton text="Landing Gear"/>
+        <ToggleButton text="Cargo Scoop"/>
+        <ToggleButton text="External Lights"/>
+        <ToggleButton text="Night Vision"/>
+        <ToggleButton text="Hardpoints"/>
 
 
       </main>
