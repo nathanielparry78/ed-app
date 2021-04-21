@@ -16,13 +16,26 @@ const ModRow = styled.div`
   grid-template-columns: 50% 30% 10% 10%;
   padding: .25rem;
   column-gap: 1rem;
+
+  ${({head}) => head && `
+    color: var(--blue);
+    border-bottom: 1px solid var(--yellowBorder);
+  `}
 `;
 
 const HealthBar = styled.span`
   height: 100%;
-  width: 100%;
+  width: 80%;
   background: var(--orangeRow);
   position: relative;
+  padding: 0 0.5rem;
+
+
+  & span {
+    z-index: 1;
+    position: absolute;
+    ${({value}) => value && `left: calc(${value}% + .25rem)`}
+  }
 
   &:before {
     position: absolute;
@@ -30,7 +43,7 @@ const HealthBar = styled.span`
     left: 0;
     top: 0;
     height: 100%;
-    background: var(--orange);
+    background: var(--blueBackground);
 
     ${({value}) => value && `width: ${value}%`}
   }
@@ -46,7 +59,7 @@ const DataRow = ({label, value}) => (
 const Module = ({Slot, Item, On, Priority, Health}) => (
   <ModRow>
     <span>{Item}</span>
-    <HealthBar value={Health * 100}>{Health}</HealthBar>
+    <HealthBar value={Health * 100}><span>{Health * 100}%</span></HealthBar>
     <span>{On === true ? "ON" : "OFF"}</span>
     <span>{Priority + 1}</span>
   </ModRow>
@@ -87,6 +100,12 @@ export default function Status () {
             </Info>
             <h3>Modules</h3>
             <ModuleList>
+              <ModRow head={true}>
+                <span>Module</span>
+                <span>Health</span>
+                <span>On/Off</span>
+                <span>Priority</span>
+              </ModRow>
               {Modules.map(item => (
                 <Module key={item.Slot} {...item}/>
               ))}
