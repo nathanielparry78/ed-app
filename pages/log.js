@@ -9,7 +9,7 @@ export default function Log () {
 
   useEffect(() => {
     const getLog = async () => {
-      fetch('https://raw.githubusercontent.com/nathanielparry78/ed-app/f87ca2f8b3e559406c494751424e3e946e926dfc/public/Journal.210414220818.01.log')
+      fetch('https://raw.githubusercontent.com/nathanielparry78/ed-app/main/public/Journal.210414220818.01.log')
         .then(res => res.text())
         .then(string => ndjsonParser(string))
         .then(blob => {
